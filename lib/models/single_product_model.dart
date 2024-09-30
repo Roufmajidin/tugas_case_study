@@ -31,7 +31,6 @@ class ProductDetail {
     required this.id,
   });
 
-  // Fungsi untuk mem-parsing JSON menjadi objek ProductDetail
   factory ProductDetail.fromJson(Map<String, dynamic> json) {
     return ProductDetail(
       createdByName: json['createdByName'],

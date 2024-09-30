@@ -94,8 +94,7 @@ class _DashboardPageState extends State<DashboardPage> {
                         child: Padding(
                           padding: const EdgeInsets.only(left: 15, right: 15),
                           child: TextFormField(
-                            // initialValue: detailProduct!.stok,
-                            // controller: stokController,
+                            enabled: false,
                             decoration: const InputDecoration(
                               suffixIcon: Icon(Icons.sort_outlined),
                               border: InputBorder.none,

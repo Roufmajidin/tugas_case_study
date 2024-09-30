@@ -6,6 +6,7 @@ class ProfileWidget extends StatelessWidget {
     super.key,
     required this.nama,
     required this.jabatan,
+    // ignore: non_constant_identifier_names
     required this.kode_gudang,
   });
   final String nama;

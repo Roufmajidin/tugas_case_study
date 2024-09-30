@@ -27,6 +27,7 @@ class _NavigationViewState extends State<NavigationView> {
     return Scaffold(
       bottomNavigationBar: NavigationBar(
         backgroundColor: Colors.white,
+        // ignore: prefer_const_literals_to_create_immutables
         destinations: [
           const NavigationDestination(
               icon: Icon(Icons.home),
@@ -42,12 +43,13 @@ class _NavigationViewState extends State<NavigationView> {
                 Icons.book_rounded,
                 color: Colors.purple,
               )),
-
-           NavigationDestination(
-            icon: const Icon(Icons.book_outlined),
-            label: 'Adjusmnent',
-            selectedIcon:Icon(Icons.book_rounded, color: Colors.purple,)
-          ),
+          const NavigationDestination(
+              icon: Icon(Icons.book_outlined),
+              label: 'Adjusmnent',
+              selectedIcon: Icon(
+                Icons.book_rounded,
+                color: Colors.purple,
+              )),
         ],
         selectedIndex: currentPageIndex,
         onDestinationSelected: (int index) {
@@ -57,11 +59,11 @@ class _NavigationViewState extends State<NavigationView> {
         },
       ),
       body: <Widget>[
-        const DashboardPage(title: 'Dasbooard'),
+        const DashboardPage(title: 'Dashboard'),
         const DashboardPage(
           title: 'Dashboard',
         ),
-       const AdjusmentView(
+        const AdjusmentView(
           title: 'Adjsument Stock',
         ),
       ][currentPageIndex],

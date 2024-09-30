@@ -17,16 +17,16 @@ class ProductDetailView extends StatefulWidget {
 }
 
 class _ProductDetailViewState extends State<ProductDetailView> {
-  late ProductDetail
+   late ProductDetail
       productDetail; // Tambahkan variabel untuk menyimpan data produk
 
   @override
   void initState() {
     super.initState();
     final authProvider = Provider.of<ControllerProvider>(context, listen: false);
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      authProvider.fetchProductById(widget.id);
-      productDetail = authProvider.productDetail!;
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+     await authProvider.fetchProductById(widget.id);
+      productDetail =  authProvider.productDetail!;
       setState(() {
         kodeGudangController.text = authProvider.kodeGudang ?? '';
         namaBarangController.text = productDetail.namaBarang;
@@ -99,7 +99,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
 
   @override
   Widget build(BuildContext context) {
-    final authProvider = Provider.of<ControllerProvider>(context, listen: false);
+    // final authProvider = Provider.of<ControllerProvider>(context, listen: false);
 
     return Scaffold(
       appBar: AppBar(
@@ -145,7 +145,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                   const SizedBox(height: 40),
                   GudangWidget(
                     title: detailProduct!.namaBarang,
-                    subtitile: "Categoei : ${detailProduct.kategori}",
+                    subtitile: "Categori : ${detailProduct.kategori}",
                   ),
                   const SizedBox(height: 16),
                   Center(

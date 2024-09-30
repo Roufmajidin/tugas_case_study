@@ -1,8 +1,9 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tugas_case_study/controllers/controller_provider.dart';
 import 'package:tugas_case_study/pages/navigation/navigation.dart';
-import 'package:tugas_case_study/pages/product/dashboard.dart';
 
 class AuthenticationView extends StatefulWidget {
   const AuthenticationView({super.key});
