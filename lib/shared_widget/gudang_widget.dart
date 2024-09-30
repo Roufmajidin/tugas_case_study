@@ -4,13 +4,15 @@ import 'package:flutter/material.dart';
 
 class GudangWidget extends StatelessWidget {
   String subtitile;
-  
-  String title;
 
-   GudangWidget({
+  String title;
+  bool? isDetail;
+
+  GudangWidget({
     super.key,
     required this.title,
     required this.subtitile,
+    this.isDetail,
   });
 
   @override
@@ -24,18 +26,21 @@ class GudangWidget extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Container(
-              padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                color: Colors.grey.withOpacity(0.4),
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: const Icon(
-                Icons.label,
-                color: Colors.purple,
-              )),
-           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
+          isDetail == false
+              ? Container(
+                  padding: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    color: Colors.grey.withOpacity(0.4),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: const Icon(
+                    Icons.label,
+                    color: Colors.purple,
+                  ))
+              : const SizedBox(),
+          Padding(
+            padding:
+                EdgeInsets.symmetric(horizontal: isDetail == false ? 16 : 0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

@@ -71,12 +71,14 @@ class _DashboardPageState extends State<DashboardPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     ProfileWidget(
+
                         nama: authProvider.loginModel!.username,
                         jabatan: authProvider.loginModel!.isAdmin,
                         kode_gudang: kd),
                     // widget 2
                     const SizedBox(height: 16),
                     GudangWidget(
+                      isDetail : false,
                       title: "Gudang $kd",
                       subtitile: "Makanan, Minuman, stationary, Medicine  ",
                     ),

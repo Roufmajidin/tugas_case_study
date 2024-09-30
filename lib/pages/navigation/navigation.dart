@@ -64,7 +64,7 @@ class _NavigationViewState extends State<NavigationView> {
           title: 'Dashboard',
         ),
         const AdjusmentView(
-          title: 'Adjsument Stock',
+          title: 'Adjusment Stock',
         ),
       ][currentPageIndex],
     );

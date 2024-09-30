@@ -17,16 +17,17 @@ class ProductDetailView extends StatefulWidget {
 }
 
 class _ProductDetailViewState extends State<ProductDetailView> {
-   late ProductDetail
+  late ProductDetail
       productDetail; // Tambahkan variabel untuk menyimpan data produk
 
   @override
   void initState() {
     super.initState();
-    final authProvider = Provider.of<ControllerProvider>(context, listen: false);
+    final authProvider =
+        Provider.of<ControllerProvider>(context, listen: false);
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-     await authProvider.fetchProductById(widget.id);
-      productDetail =  authProvider.productDetail!;
+      await authProvider.fetchProductById(widget.id);
+      productDetail = authProvider.productDetail!;
       setState(() {
         kodeGudangController.text = authProvider.kodeGudang ?? '';
         namaBarangController.text = productDetail.namaBarang;
@@ -58,7 +59,8 @@ class _ProductDetailViewState extends State<ProductDetailView> {
   // }
 
   void submitEdit() async {
-    final authProvider = Provider.of<ControllerProvider>(context, listen: false);
+    final authProvider =
+        Provider.of<ControllerProvider>(context, listen: false);
 
     final updatedProduct = ProductDetail(
       id: productDetail.id,
@@ -113,13 +115,17 @@ class _ProductDetailViewState extends State<ProductDetailView> {
             padding: const EdgeInsets.only(right: 16),
             child: TextButton(
               onPressed: () {},
-              child: const Text("Logout", style: TextStyle(color: Colors.black),),
+              child: const Text(
+                "Logout",
+                style: TextStyle(color: Colors.black),
+              ),
             ),
           )
         ],
       ),
       body: SingleChildScrollView(
-        child: Consumer(builder: (context, ControllerProvider authProvider, child) {
+        child: Consumer(
+            builder: (context, ControllerProvider authProvider, child) {
           var kd = authProvider.kodeGudang;
           final detailProduct = authProvider.productDetail;
 
@@ -144,6 +150,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                   // widget 2
                   const SizedBox(height: 40),
                   GudangWidget(
+                    isDetail : true,
                     title: detailProduct!.namaBarang,
                     subtitile: "Categori : ${detailProduct.kategori}",
                   ),
@@ -269,7 +276,11 @@ class _ProductDetailViewState extends State<ProductDetailView> {
               child: Container(
                 height: 50,
                 decoration: BoxDecoration(
-                  color: Colors.grey.withOpacity(0.3),
+                  color: Colors.grey.withOpacity(0.1),
+                  border: Border.all(
+                    color: Colors.blue,
+                    width: 1.0,
+                  ),
                   borderRadius: BorderRadius.circular(10.0),
                 ),
                 child: Padding(
@@ -289,8 +300,13 @@ class _ProductDetailViewState extends State<ProductDetailView> {
               child: Container(
                 height: 50,
                 decoration: BoxDecoration(
-                  color: Colors.grey.withOpacity(0.3),
                   borderRadius: BorderRadius.circular(10.0),
+
+                  color: Colors.grey.withOpacity(0.1),
+                  border: Border.all(
+                    color: Colors.blue,
+                    width: 1.0,
+                  ),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.only(left: 15, right: 15),
@@ -314,8 +330,13 @@ class _ProductDetailViewState extends State<ProductDetailView> {
               child: Container(
                 height: 50,
                 decoration: BoxDecoration(
-                  color: Colors.grey.withOpacity(0.3),
                   borderRadius: BorderRadius.circular(10.0),
+
+                  color: Colors.grey.withOpacity(0.1),
+                  border: Border.all(
+                    color: Colors.blue,
+                    width: 1.0,
+                  ),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.only(left: 15, right: 15),
@@ -334,8 +355,13 @@ class _ProductDetailViewState extends State<ProductDetailView> {
               child: Container(
                 height: 50,
                 decoration: BoxDecoration(
-                  color: Colors.grey.withOpacity(0.3),
                   borderRadius: BorderRadius.circular(10.0),
+
+                  color: Colors.grey.withOpacity(0.1),
+                  border: Border.all(
+                    color: Colors.blue,
+                    width: 1.0,
+                  ),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.only(left: 15, right: 15),
