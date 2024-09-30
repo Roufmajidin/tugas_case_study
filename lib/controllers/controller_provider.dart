@@ -43,8 +43,8 @@ class ControllerProvider with ChangeNotifier {
 
     final url = Uri.parse('https://itasoft.int.joget.cloud/jw/api/sso');
     final headers = {
-      'api_key': '6a9ed2eaf0ff4274ab2370bed8ea31fc',
-      'api_id': 'API-b8b98d97-008d-4b83-aa59-cb133665638b',
+      'api_key': apiKey,
+      'api_id': apiId,
     };
     final body = {
       'j_username': username,
@@ -229,8 +229,8 @@ class ControllerProvider with ChangeNotifier {
         'https://itasoft.int.joget.cloud/jw/api/list/listAdjustmentStok?pageSize=90&startOffset=1');
     try {
       final response = await http.get(url, headers: {
-        'api_key': '6a9ed2eaf0ff4274ab2370bed8ea31fc',
-        'api_id': 'API-b8b98d97-008d-4b83-aa59-cb133665638b',
+        'api_key': apiKey,
+        'api_id': apiId,
       });
 
       if (response.statusCode == 200) {
